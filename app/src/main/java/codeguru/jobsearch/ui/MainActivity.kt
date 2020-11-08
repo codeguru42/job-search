@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.room.Room
 import codeguru.jobsearch.R
+import codeguru.jobsearch.db.JobSearchDatabase
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +14,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        val db = Room.databaseBuilder(
+            this,
+            JobSearchDatabase::class.java,
+            "job_search"
+        ).build()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
