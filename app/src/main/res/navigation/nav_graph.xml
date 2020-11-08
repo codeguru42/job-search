@@ -12,7 +12,7 @@
         tools:layout="@layout/jobs_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_details"
             app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
