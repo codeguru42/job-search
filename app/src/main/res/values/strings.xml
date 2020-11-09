@@ -11,6 +11,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <string name="add_content_description">Add Job Contacts and Details</string>
+    <string name="save_content_description">Save Position Details</string>
     <string name="new_position">New Position</string>
     <string name="title">Title</string>
     <string name="business_name">Business Name</string>
