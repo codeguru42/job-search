@@ -17,33 +17,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/title_input_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/title"
+        android:theme="@style/Theme.JobSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_new_position">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/title"
-            android:theme="@style/Theme.JobSearch"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/business_name"
         android:theme="@style/Theme.JobSearch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/title_input_layout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/text_business_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/business_name" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
