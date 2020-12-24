@@ -25,7 +25,7 @@ class JobsListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<FloatingActionButton>(R.id.fab).setOnClickListener {
+        view.findViewById<FloatingActionButton>(R.id.position_add).setOnClickListener {
             findNavController().navigate(R.id.action_details)
         }
     }
