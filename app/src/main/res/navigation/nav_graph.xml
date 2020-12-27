@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="codeguru.jobsearch.ui.JobsListFragment"
+        android:name="codeguru.jobsearch.ui.PositionList"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/jobs_list">
 
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="codeguru.jobsearch.ui.JobsDetailsFragment"
+        android:name="codeguru.jobsearch.ui.PositionDetails"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/jobs_detail">
 
