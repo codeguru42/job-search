@@ -2,9 +2,9 @@ package codeguru.jobsearch.ui
 
 import android.app.Instrumentation
 import android.content.Context
-import android.util.Log
 import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.lifecycle.Lifecycle
+import androidx.navigation.Navigation
+import androidx.navigation.testing.TestNavHostController
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
@@ -50,7 +50,17 @@ class TestPositionDetails {
         val company = "Google"
         val position = Position(1, title, company)
 
-        launchFragmentInContainer<PositionDetails>()
+        val positionDetailsScenario = launchFragmentInContainer<PositionDetails>()
+
+        val navController = TestNavHostController(
+            ApplicationProvider.getApplicationContext()
+        )
+        positionDetailsScenario.onFragment { fragment ->
+            navController.setGraph(R.navigation.nav_graph)
+            navController.setCurrentDestination(R.id.PositionDetail)
+            Navigation.setViewNavController(fragment.requireView(), navController)
+        }
+
         onView(withId(R.id.text_title))
             .perform(typeText(title))
         onView(withId(R.id.text_business_name))
@@ -60,11 +70,11 @@ class TestPositionDetails {
             )
         onView(withId(R.id.position_save)).perform(click())
 
-        instrumentation.runOnMainSync(Runnable  {
+        instrumentation.runOnMainSync {
             val livePositions = positionDao.getPositions()
             livePositions.observeForever { positions ->
-                assertThat(positions.get(0)).isEqualTo(position)
+                assertThat(positions[0]).isEqualTo(position)
             }
-        })
+        }
     }
 }
