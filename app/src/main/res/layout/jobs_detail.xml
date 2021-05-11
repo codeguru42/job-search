@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/Theme.JobSearch"
     tools:context=".ui.PositionDetails">
 
     <TextView
@@ -12,7 +11,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_position"
-        android:theme="@style/Theme.JobSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,7 +19,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/title"
-        android:theme="@style/Theme.JobSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_new_position">
 
@@ -35,7 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/business_name"
-        android:theme="@style/Theme.JobSearch"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_input_layout">
 
