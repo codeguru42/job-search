@@ -19,7 +19,7 @@ class PositionList : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.jobs_list, container, false)
+        return inflater.inflate(R.layout.position_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

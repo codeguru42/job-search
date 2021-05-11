@@ -9,7 +9,7 @@
         android:id="@+id/PositionList"
         android:name="codeguru.jobsearch.ui.PositionList"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/jobs_list">
+        tools:layout="@layout/position_list">
 
         <action
             android:id="@+id/action_details"
@@ -19,7 +19,7 @@
         android:id="@+id/PositionDetail"
         android:name="codeguru.jobsearch.ui.PositionDetails"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/jobs_detail">
+        tools:layout="@layout/position_detail">
 
         <action
             android:id="@+id/position_list"
