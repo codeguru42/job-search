@@ -50,7 +50,10 @@ class TestPositionDetails {
         val company = "Google"
         val position = Position(1, title, company)
 
-        val positionDetailsScenario = launchFragmentInContainer<PositionDetails>()
+        val positionDetailsScenario = launchFragmentInContainer<PositionDetails>(
+            null,
+            androidx.appcompat.R.style.Theme_AppCompat
+        )
 
         val navController = TestNavHostController(
             ApplicationProvider.getApplicationContext()
