@@ -52,7 +52,7 @@ class TestPositionDetails {
 
         val positionDetailsScenario = launchFragmentInContainer<PositionDetails>(
             null,
-            androidx.appcompat.R.style.Theme_AppCompat
+            R.style.Theme_JobSearch
         )
 
         val navController = TestNavHostController(
