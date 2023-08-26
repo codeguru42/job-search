@@ -5,12 +5,12 @@ plugins {
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 32
+    compileSdk 32
 
     defaultConfig {
         applicationId "codeguru.jobsearch"
-        minSdkVersion 21
-        targetSdkVersion 32
+        minSdk 21
+        targetSdk 32
         versionCode 1
         versionName "1.0"
 
