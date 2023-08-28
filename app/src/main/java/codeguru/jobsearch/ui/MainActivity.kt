@@ -1,19 +1,21 @@
 package codeguru.jobsearch.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material3.Text
 import androidx.room.Room
 import codeguru.jobsearch.R
 import codeguru.jobsearch.db.JobSearchDatabase
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        setContent {
+            Text("Hello, World")
+        }
 
         val db = Room.databaseBuilder(
             this,
