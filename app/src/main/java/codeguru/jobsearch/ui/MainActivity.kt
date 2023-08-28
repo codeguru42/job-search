@@ -56,21 +56,25 @@ class MainActivity : ComponentActivity() {
 private fun App() {
     MaterialTheme {
         Scaffold (
-            topBar = {
-                TopAppBar(
-                    colors = topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary,
-                    ),
-                    title = {
-                        Text(stringResource(R.string.app_name))
-                    }
-                )
-            }
+            topBar = { JobSearchAppBar() }
         ) {innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
                 Text("Hello, World")
             }
         }
     }
+}
+
+@Composable
+@OptIn(ExperimentalMaterial3Api::class)
+private fun JobSearchAppBar() {
+    TopAppBar(
+        colors = topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.primary,
+        ),
+        title = {
+            Text(stringResource(R.string.app_name))
+        }
+    )
 }
