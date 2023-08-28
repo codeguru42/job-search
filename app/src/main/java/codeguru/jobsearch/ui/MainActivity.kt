@@ -17,6 +17,7 @@ import androidx.room.Room
 import codeguru.jobsearch.JobSearchNavHost
 import codeguru.jobsearch.R
 import codeguru.jobsearch.db.JobSearchDatabase
+import codeguru.jobsearch.ui.theme.JobSearchTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun App() {
-    MaterialTheme {
+    JobSearchTheme {
         Scaffold(topBar = { JobSearchAppBar() }) {
             JobSearchNavHost(modifier = Modifier.padding(it))
         }
