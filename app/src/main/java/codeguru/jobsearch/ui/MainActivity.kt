@@ -7,7 +7,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -56,12 +60,22 @@ class MainActivity : ComponentActivity() {
 private fun App() {
     MaterialTheme {
         Scaffold (
-            topBar = { JobSearchAppBar() }
+            topBar = { JobSearchAppBar() },
+            floatingActionButton = { AddJobButton() }
         ) {innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
                 Text("Hello, World")
             }
         }
+    }
+}
+
+@Composable
+fun AddJobButton() {
+    FloatingActionButton(
+        onClick = {},
+    ) {
+        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.position_add))
     }
 }
 
