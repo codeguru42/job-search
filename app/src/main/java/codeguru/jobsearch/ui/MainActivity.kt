@@ -5,7 +5,17 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.room.Room
 import codeguru.jobsearch.R
 import codeguru.jobsearch.db.JobSearchDatabase
@@ -14,7 +24,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Text("Hello, World")
+            App()
         }
 
         val db = Room.databaseBuilder(
@@ -37,6 +47,30 @@ class MainActivity : ComponentActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun App() {
+    MaterialTheme {
+        Scaffold (
+            topBar = {
+                TopAppBar(
+                    colors = topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        titleContentColor = MaterialTheme.colorScheme.primary,
+                    ),
+                    title = {
+                        Text(stringResource(R.string.app_name))
+                    }
+                )
+            }
+        ) {innerPadding ->
+            Column(modifier = Modifier.padding(innerPadding)) {
+                Text("Hello, World")
+            }
         }
     }
 }
