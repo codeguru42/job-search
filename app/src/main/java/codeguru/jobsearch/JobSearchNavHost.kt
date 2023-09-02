@@ -13,7 +13,7 @@ fun JobSearchNavHost(modifier: Modifier) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "jobList") {
-        composable("jobList") { JobListScreen(modifier = modifier) }
+        composable("jobList") { JobListScreen(modifier = modifier, onClickAddJob = { navController.navigate("jobDetails") }) }
         composable("jobDetails") { JobDetailsScreen(modifier = modifier) }
     }
 }

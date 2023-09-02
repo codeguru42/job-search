@@ -18,11 +18,11 @@ import androidx.compose.ui.res.stringResource
 import codeguru.jobsearch.R
 
 @Composable
-fun JobListScreen(modifier: Modifier) {
+fun JobListScreen(modifier: Modifier, onClickAddJob: () -> Unit) {
     Scaffold (
         modifier = modifier,
         topBar = { JobSearchAppBar() },
-        floatingActionButton = { AddJobButton() }
+        floatingActionButton = { AddJobButton(onClickAddJob) }
     ) {innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
             Text("Hello, World")
@@ -31,9 +31,9 @@ fun JobListScreen(modifier: Modifier) {
 }
 
 @Composable
-fun AddJobButton() {
+fun AddJobButton(onClickAddJob: () -> Unit) {
     FloatingActionButton(
-        onClick = {},
+        onClick = onClickAddJob,
     ) {
         Icon(Icons.Default.Add, contentDescription = stringResource(R.string.position_add))
     }
