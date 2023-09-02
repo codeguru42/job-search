@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +30,8 @@ fun JobListScreen(modifier: Modifier, onClickAddJob: () -> Unit) {
 fun AddJobButton(onClickAddJob: () -> Unit) {
     FloatingActionButton(
         onClick = onClickAddJob,
+        containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+        contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
     ) {
         Icon(Icons.Default.Add, contentDescription = stringResource(R.string.position_add))
     }
