@@ -2,23 +2,24 @@ package codeguru.jobsearch.ui
 
 import android.app.Instrumentation
 import android.content.Context
-import androidx.fragment.app.testing.launchFragmentInContainer
-import androidx.navigation.Navigation
-import androidx.navigation.testing.TestNavHostController
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTextInput
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import codeguru.jobsearch.R
 import codeguru.jobsearch.db.JobSearchDatabase
 import codeguru.jobsearch.db.Position
 import codeguru.jobsearch.db.PositionDao
 import com.google.common.truth.Truth.assertThat
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
@@ -27,6 +28,9 @@ import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
 class TestPositionDetails {
+    @get:Rule
+    val composeRule = createComposeRule()
+
     private lateinit var positionDao: PositionDao
     private lateinit var db: JobSearchDatabase
     private lateinit var instrumentation: Instrumentation
@@ -52,28 +56,16 @@ class TestPositionDetails {
         val company = "Google"
         val position = Position(1, title, company)
 
-        val positionDetailsScenario = launchFragmentInContainer<PositionDetails>(
-            null,
-            androidx.appcompat.R.style.Theme_AppCompat
-        )
-
-        val navController = TestNavHostController(
-            ApplicationProvider.getApplicationContext()
-        )
-        positionDetailsScenario.onFragment { fragment ->
-            navController.setGraph(R.navigation.nav_graph)
-            navController.setCurrentDestination(R.id.PositionDetail)
-            Navigation.setViewNavController(fragment.requireView(), navController)
+        composeRule.setContent {
+            JobDetailsScreen(modifier = Modifier)
         }
 
-        onView(withId(R.id.text_title))
-            .perform(typeText(title))
-        onView(withId(R.id.text_business_name))
-            .perform(
-                typeText(company),
-                closeSoftKeyboard()
-            )
-        onView(withId(R.id.position_save)).perform(click())
+        composeRule.onNodeWithText("Title")
+            .performTextInput(title)
+        composeRule.onNodeWithText("Company")
+            .performTextInput(company)
+        composeRule.onNodeWithContentDescription("Save Position Details")
+            .performClick()
 
         val latch = CountDownLatch(1);
         instrumentation.runOnMainSync {
