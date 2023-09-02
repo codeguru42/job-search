@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.room.Room
+import codeguru.jobsearch.JobSearchNavHost
 import codeguru.jobsearch.R
 import codeguru.jobsearch.db.JobSearchDatabase
 
@@ -48,6 +49,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun App(modifier: Modifier = Modifier) {
     MaterialTheme {
-        JobListScreen(modifier = modifier)
+        JobSearchNavHost(modifier = modifier)
     }
 }
