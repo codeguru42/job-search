@@ -45,7 +45,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -56,9 +55,6 @@ dependencies {
     // Navigation
     val nav_version = "2.7.1"
     implementation("androidx.navigation:navigation-compose:$nav_version")
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-    androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     // Room dependencies
     val room_version = "2.5.2"
@@ -66,10 +62,6 @@ dependencies {
     ksp("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     testImplementation("androidx.room:room-testing:$room_version")
-
-    // Fragment testing
-    val fragment_version = "1.6.1"
-    debugImplementation("androidx.fragment:fragment-testing:$fragment_version")
 
     // Jetpack Compose
     val composeBom = platform("androidx.compose:compose-bom:2023.08.00")
