@@ -53,8 +53,9 @@ dependencies {
     androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation("com.google.truth:truth:1.1")
 
-    // Fragment Navigation
+    // Navigation
     val nav_version = "2.7.1"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
