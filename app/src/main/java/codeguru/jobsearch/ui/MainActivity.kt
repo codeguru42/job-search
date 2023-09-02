@@ -59,36 +59,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun App() {
     MaterialTheme {
-        Scaffold (
-            topBar = { JobSearchAppBar() },
-            floatingActionButton = { AddJobButton() }
-        ) {innerPadding ->
-            Column(modifier = Modifier.padding(innerPadding)) {
-                Text("Hello, World")
-            }
-        }
+        JobListScreen()
     }
-}
-
-@Composable
-fun AddJobButton() {
-    FloatingActionButton(
-        onClick = {},
-    ) {
-        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.position_add))
-    }
-}
-
-@Composable
-@OptIn(ExperimentalMaterial3Api::class)
-private fun JobSearchAppBar() {
-    TopAppBar(
-        colors = topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.primary,
-        ),
-        title = {
-            Text(stringResource(R.string.app_name))
-        }
-    )
 }
