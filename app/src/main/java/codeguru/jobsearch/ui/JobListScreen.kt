@@ -18,8 +18,9 @@ import androidx.compose.ui.res.stringResource
 import codeguru.jobsearch.R
 
 @Composable
-fun JobListScreen() {
+fun JobListScreen(modifier: Modifier) {
     Scaffold (
+        modifier = modifier,
         topBar = { JobSearchAppBar() },
         floatingActionButton = { AddJobButton() }
     ) {innerPadding ->
