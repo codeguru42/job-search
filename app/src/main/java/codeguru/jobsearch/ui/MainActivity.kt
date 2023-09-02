@@ -5,10 +5,16 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.room.Room
 import codeguru.jobsearch.JobSearchNavHost
 import codeguru.jobsearch.R
@@ -47,8 +53,24 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun App(modifier: Modifier = Modifier) {
+private fun App() {
     MaterialTheme {
-        JobSearchNavHost(modifier = modifier)
+        Scaffold(topBar = { JobSearchAppBar() }) {
+            JobSearchNavHost(modifier = Modifier.padding(it))
+        }
     }
+}
+
+@Composable
+@OptIn(ExperimentalMaterial3Api::class)
+private fun JobSearchAppBar() {
+    TopAppBar(
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.primary,
+        ),
+        title = {
+            Text(stringResource(R.string.app_name))
+        }
+    )
 }
