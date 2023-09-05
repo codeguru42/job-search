@@ -22,6 +22,8 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import java.io.IOException
+import java.util.concurrent.CountDownLatch
+import java.util.concurrent.TimeUnit
 
 @RunWith(AndroidJUnit4::class)
 class TestPositionDetails {
@@ -73,11 +75,16 @@ class TestPositionDetails {
             )
         onView(withId(R.id.position_save)).perform(click())
 
+        val latch = CountDownLatch(1);
         instrumentation.runOnMainSync {
             val livePositions = positionDao.getPositions()
             livePositions.observeForever { positions ->
-                assertThat(positions[0]).isEqualTo(position)
+                if (positions.isNotEmpty()) {
+                    latch.countDown()
+                    assertThat(positions[0]).isEqualTo(position)
+                }
             }
         }
+        assertThat(latch.await(2, TimeUnit.SECONDS)).isTrue()
     }
 }
